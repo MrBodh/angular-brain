@@ -1,0 +1,6 @@
+<p>home works!</p>
+<app-counter [count] = "count" (incrementEvent) = "incrementCount($event)"></app-counter>
+<app-table [users] = "users" (scoreChange) = "incrementScore($event)" (editUser)="openEditModal($event)"></app-table>
+<app-edit-user-modal
+  *ngIf="isModalOpen" [user] = "selectedUser!" (saveUser) = "saveUser($event)" (closeModal) = "closeModal()">
+</app-edit-user-modal>

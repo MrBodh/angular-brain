@@ -1,0 +1,42 @@
+<div class="modal-backdrop">
+    
+    <div class="modal-box">
+        <h2>Edit User</h2>
+
+        <form (ngSubmit)="save()">
+
+        <div>
+
+            <label>Name:</label>
+
+            <input
+            name="name"
+            [(ngModel)]="user.name">
+
+        </div>
+
+        <br>
+
+        <div>
+
+            <label>Score:</label>
+
+            <input
+            type="number"
+            name="score"
+            [(ngModel)]="user.score">
+
+        </div>
+
+        <br>
+
+        <button type="submit">
+            Save
+        </button>
+        <button (click) = close() type="button">
+            Close
+        </button>
+
+        </form>
+    </div>
+</div>
