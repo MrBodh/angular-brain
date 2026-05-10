@@ -1,148 +1,42 @@
 <div class="modal-backdrop">
-
+    
     <div class="modal-box">
-
         <h2>Edit User</h2>
 
-        <form
-          [formGroup]="userForm"
-          (ngSubmit)="save()">
+        <form (ngSubmit)="save()">
 
-            <div>
+        <div>
 
-                <label>Name:</label>
+            <label>Name:</label>
 
-                <input
-                  formControlName="name">
+            <input
+            name="name"
+            [(ngModel)]="user.name">
 
-                <div *ngIf="userForm.get('name')?.errors">
+        </div>
 
-                    <div
-                      *ngIf="
-                        userForm.get('name')
-                        ?.errors?.['required']
-                      ">
+        <br>
 
-                        Name is required
+        <div>
 
-                    </div>
+            <label>Score:</label>
 
-                    <div
-                      *ngIf="
-                        userForm.get('name')
-                        ?.errors?.['minlength']
-                      ">
+            <input
+            type="number"
+            name="score"
+            [(ngModel)]="user.score">
 
-                        Name must be at least
-                        3 characters
+        </div>
 
-                    </div>
+        <br>
 
-                </div>
-
-            </div>
-
-            <br>
-
-            <div>
-
-                <label>Email:</label>
-
-                <input
-                  formControlName="email">
-
-                <div *ngIf="userForm.get('email')?.errors">
-
-                    <div
-                      *ngIf="
-                        userForm.get('email')
-                        ?.errors?.['required']
-                      ">
-
-                        Email is required
-
-                    </div>
-
-                    <div
-                      *ngIf="
-                        userForm.get('email')
-                        ?.errors?.['email']
-                      ">
-
-                        Invalid email format
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <br>
-
-            <div>
-
-                <label>Score:</label>
-
-                <input
-                  type="number"
-                  formControlName="score">
-
-                <div *ngIf="userForm.get('score')?.errors">
-
-                    <div
-                      *ngIf="
-                        userForm.get('score')
-                        ?.errors?.['required']
-                      ">
-
-                        Score is required
-
-                    </div>
-
-                    <div
-                      *ngIf="
-                        userForm.get('score')
-                        ?.errors?.['min']
-                      ">
-
-                        Score cannot be below 0
-
-                    </div>
-
-                    <div
-                      *ngIf="
-                        userForm.get('score')
-                        ?.errors?.['max']
-                      ">
-
-                        Score cannot exceed 100
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <br>
-
-            <button
-              type="submit"
-              [disabled]="userForm.invalid">
-
-                Save
-
-            </button>
-
-            <button
-              type="button"
-              (click)="close()">
-
-                Close
-
-            </button>
+        <button type="submit">
+            Save
+        </button>
+        <button (click) = close() type="button">
+            Close
+        </button>
 
         </form>
-
     </div>
-
 </div>
