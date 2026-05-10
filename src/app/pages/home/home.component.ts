@@ -34,8 +34,7 @@ export class HomeComponent implements OnInit {
   incrementScore(user_id:number){
     const user = this.users.find(user => user.id === user_id);
     if(user){
-      // user.score += 5;
-      user.score = Math.min(user.score+5,100)
+      user.score += 5;
     }
   }
   openEditModal(user_id:number){
