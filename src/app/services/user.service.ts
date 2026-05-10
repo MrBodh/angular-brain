@@ -9,16 +9,20 @@ export class UserService {
     {
       id: 1,
       name: 'Ankit',
-      score: 10
+      email: 'ankit@test.com',
+      score: 10,
+      
     },
     {
       id: 2,
       name: 'Rahul',
+      email: 'rahul@test.com',
       score: 20
     },
     {
       id: 3,
       name: 'Priya',
+      email: 'priya@test.com',
       score: 30
     }
   ];
