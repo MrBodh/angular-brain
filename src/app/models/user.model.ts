@@ -1,5 +1,6 @@
 export interface User{
     id : number,
     name : string,
-    score : number
+    score : number,
+    email : string
 }
