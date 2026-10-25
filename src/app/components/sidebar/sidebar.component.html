@@ -2,15 +2,29 @@
 
   <h2>Menu</h2>
 
-  <a routerLink="/dashboard">
+  <a routerLink="/dashboard" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
     Dashboard
   </a>
 
   <br>
   <br>
 
-  <a routerLink="/users">
+  <a routerLink="/users" routerLinkActive="active-link" >
     Users
   </a>
+  <br>
+<br>
+
+<div *ngFor="let user of users">
+
+  <a
+    [routerLink]="['/users', user.id]"
+    routerLinkActive="active-link">
+
+    {{ user.name }}
+
+  </a>
+
+</div>
 
 </div>

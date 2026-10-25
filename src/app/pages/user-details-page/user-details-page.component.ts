@@ -18,21 +18,23 @@ export class UserDetailsPageComponent implements OnInit {
   ) {}
   ngOnInit(): void {
 
-    const id =
-      Number(
-        this.route.snapshot.paramMap.get('id')
-      );
+    this.route.paramMap.subscribe(params => {
 
-    const foundUser =
-      this.userService.users.find(
-        u => u.id === id
-      );
+      const id =
+        Number(params.get('id'));
 
-    if (!foundUser) {
-      return;
-    }
+      const foundUser =
+        this.userService.users.find(
+          u => u.id === id
+        );
 
-    this.user = foundUser;
+      if (!foundUser) {
+        return;
+      }
+
+      this.user = foundUser;
+
+    });
 
   }
 }
