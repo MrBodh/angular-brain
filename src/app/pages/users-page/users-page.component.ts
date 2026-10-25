@@ -20,57 +20,48 @@ export class UsersPageComponent implements OnInit {
     private userService: UserService
   ) {}
   ngOnInit(): void {
-
-    this.users =
-      this.userService.users;
-
+    this.users = this.userService.users;
   }
 
   incrementScore(userId: number) {
-
     const user = this.users.find(
       u => u.id === userId
     );
-
     if (!user) {
       return;
     }
-
     user.score = Math.min(
       user.score + 5,
       100
     );
-
   }
-  openEditModal(userId: number) {
 
+  openEditModal(userId: number) {
     const user = this.users.find(
       u => u.id === userId
     );
-
     if (!user) {
       return;
     }
-
     this.selectedUser = user;
-
     this.isModalOpen = true;
-
   }
-  saveUser(updatedUser: User) {
 
+  saveUser(updatedUser: User) {
     const index = this.users.findIndex(
       u => u.id === updatedUser.id
     );
-
     if (index === -1) {
       return;
     }
-
     this.users[index] = updatedUser;
-
     this.isModalOpen = false;
+  }
 
+  editUserScore(event: { userId: number; score: number }) {
+    const user = this.users.find(u => u.id === event.userId);
+    if (!user) return;
+    user.score = Math.max(0, Math.min(event.score, 100));
   }
 
 }

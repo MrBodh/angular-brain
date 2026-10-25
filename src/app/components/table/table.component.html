@@ -20,7 +20,11 @@
         </a>
 
     </td>
-    <td>{{ user.score }}</td>
+    <td><input type="number" [ngModel]="user.score"
+      (change)="editScore(user.id, $any($event.target).value)"></td>
+    <!-- Notice something: we're using [ngModel], not [(ngModel)].
+    That means the input displays the score, 
+    but editing it doesn't automatically update user.score. -->
     <td>
         <button (click) = incrementScore(user.id)>
             +5

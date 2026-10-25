@@ -1,1 +1,8 @@
 <h1>Dashboard Page</h1>
+<input [(ngModel)]="two_way">
+<p>{{ two_way }}</p>
+<button [disabled]="two_way == 'ab'">Click</button>
+
+<button (click)="showMessage()">Click me</button>
+
+<p>{{ message }}</p>

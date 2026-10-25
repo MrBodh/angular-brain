@@ -16,11 +16,15 @@ implements OnInit, OnDestroy  {
   @Output() closeModal = new EventEmitter<void>();
 
   userForm !: FormGroup;
+  constructor() {
+    console.log('Constructor called');
+  }
 
   ngOnDestroy(): void {
     console.log('model destroyed')
   }
   ngOnInit(): void {
+    console.log('ngOnInit called');
     this.userForm = new FormGroup({
       name : new FormControl(
         this.user.name,

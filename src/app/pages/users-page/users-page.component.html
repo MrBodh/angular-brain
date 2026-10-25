@@ -4,7 +4,7 @@
   [users]="users"
   (scoreChange)="incrementScore($event)"
   (editUser)="openEditModal($event)"
-  >
+  (scoreEdit)="editUserScore($event)">
 </app-table>
 <app-edit-user-modal
   *ngIf="isModalOpen"
